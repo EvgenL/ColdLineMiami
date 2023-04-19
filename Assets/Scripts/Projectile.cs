@@ -1,5 +1,7 @@
 using System;
+using DefaultNamespace.Ai;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace DefaultNamespace
 {
@@ -25,6 +27,14 @@ namespace DefaultNamespace
             if (other.TryGetComponent<PlayerInput>(out var input))
             {
                 input.enabled = false;
+            }
+            if (other.TryGetComponent<StateMachine>(out var stateMachine))
+            {
+                stateMachine.enabled = false;
+            }
+            if (other.TryGetComponent<NavMeshAgent>(out var nma))
+            {
+                nma.enabled = false;
             }
         }
     }
